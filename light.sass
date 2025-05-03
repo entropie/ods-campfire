@@ -1,0 +1,803 @@
+@use "./common"
+
+:root
+  --bg:#f2eae6
+  --border:var(--bg)
+  --button-text:white
+  --control-bg:#fcf6f2
+  --control-bg-dark:#f7f1ed
+  --control-bg-light:#fff9f5
+  --control-bg-bright:#fffbf8
+  --green:#439c53
+  --link-text:var(--button-text)
+  --primary:#455696
+  --primary-hv:#546ab8
+  --secondary:#de5c1a
+  --secondary-hv:#c75317
+  --shadow:rgba(0, 0, 0, 0.059)
+  --text-dim:#75716f
+  --text-header:white
+
+  --font-family: Arial, Helvetica, Verdana, sans-serif
+
+
+*
+  color-scheme: light
+  accent-color: var(--primary)
+  text-shadow: none !important
+
+:not(.icon)
+  /* https://css-tricks.com/snippets/css/system-font-stack/ */
+  font-family: var(--font-family)
+  box-shadow: none
+  scrollbar-width: thin
+
+
+html, body
+  background: var(--bg)
+  color: var(--primary)
+
+.wrap, .panel, .post, .codebox, .cp-main .pm, .dropdown .dropdown-contents, blockquote, .postbody table, .attachbox
+  margin-bottom: 8px
+  padding: 16px
+  background-color: var(--control-bg)
+  border-radius: 8px
+  box-shadow: 0 0 0 1px var(--shadow) !important
+
+.wrap, .panel, .post, .postprofile, .bg1, .bg2, .bg3
+  border: 0
+
+.dropdown
+  .dropdown-contents, .pointer, .pointer-inner
+    border: 0
+
+  .dropdown-contents
+    max-height: none
+    padding: 0
+
+    a
+      padding: 8px
+
+  fieldset.display-options
+    padding: 8px
+
+.dropdown-extended
+  ul
+    max-height: 356px
+
+    li:hover
+      background: none
+      color: var(--primary)
+
+  a.mark_read
+    top: 42%
+    background-color: var(--control-bg-light)
+    border-radius: 4px 0 0 4px
+    box-shadow: 0 0 0 1px var(--shadow) !important
+
+.dropdown .dropdown-contents, .dropdown-extended .header
+  background-color: var(--control-bg-bright)
+
+.panel, .bg1, .bg2, .bg3
+  background-color: var(--control-bg-light)
+
+.post, .topic_poll > .panel
+  margin: 16px 0
+  padding: 16px
+
+.panel-container .panel, .contact-icons a:hover
+  background: var(--control-bg-dark)
+
+#quick-links .separator
+  border-top-style: dotted
+
+blockquote
+  margin: 16px 1px
+  background: var(--control-bg-dark)
+  border-color: var(--control-bg-dark)
+
+  blockquote blockquote
+    margin: 16px 1px
+    background: var(--control-bg-dark)
+    border-color: var(--control-bg-dark)
+
+.attachbox, .codebox
+  margin: 16px 1px
+  background: var(--control-bg-dark)
+  border-color: var(--control-bg-dark)
+
+blockquote blockquote
+  margin: 16px 8px
+  background-color: var(--control-bg)
+
+  blockquote blockquote
+    background-color: var(--control-bg)
+
+ul.forums, .row
+  background-color: var(--control-bg)
+
+.dropdown-contents li.bg2
+  font-weight: 600
+  background-color: var(--control-bg-dark)
+
+  &:hover
+    font-weight: 600
+    background-color: var(--control-bg-dark)
+
+.notification_list li.bg3
+  font-weight: 600
+  background-color: var(--control-bg-dark)
+
+.headerbar
+  background: var(--secondary)
+
+
+
+.search-header
+  margin-top: 35px
+
+  .inputbox
+    color: var(--button-text) !important
+    background: none
+    border-bottom: 1px solid #fffa
+    border-radius: 0
+
+    &:hover, &:focus
+      background: #fff1
+      border-bottom: 1px solid #fff
+
+  \::placeholder
+    color: #fffa
+
+  &:hover ::placeholder, &:focus ::placeholder
+    color: #fff
+
+  .button
+    margin-top: -2px
+    padding-bottom: 5px
+
+.logo
+  padding: 10px
+
+.headerbar *
+  color: var(--text-header)
+
+.site_logo
+  background-size: contain
+
+.navbar
+  padding-left: 6px
+  background: none
+
+ul.navlinks, .attachbox dd
+  border-top: none
+
+.breadcrumbs
+  .crumb::before
+    content: '/'
+    font-weight: 300
+
+  span:first-of-type a
+    margin-right: -.25em
+
+    span
+      display: none
+
+li.header
+  dt, dd
+    padding-top: 0
+    font-weight: 600 !important
+    text-transform: none
+
+table.table1 thead th
+  padding-top: 0
+  font-weight: 600 !important
+  text-transform: none
+
+li.header dl.row-item dt .list-inner
+  padding-left: 2px
+
+ul.topiclist
+  li.row
+    padding: 2px 0
+
+  &.forums li.row
+    dt div, dd:not(.lastpost)
+      margin-top: 2px
+
+  li.row dd
+    padding-top: 0
+
+.responsive-center.time
+  margin: -8px 8px 8px 8px
+
+.action-bar
+  font-size: unset
+
+  &.compact
+    margin: -8px 8px
+
+.stat-block, .headerspace
+  margin: -8px 8px
+
+.action-bar
+  &.compact
+    clear: both
+
+  .inputbox
+    background: var(--control-bg-light)
+    border-color: var(--secondary) !important
+
+    &:hover, &:focus
+      background: var(--control-bg-bright)
+
+.forabg, .forumbg
+  margin: 16px 0
+  background: var(--primary)
+
+a, h1, h2, h3, .postlink
+  color: var(--primary)
+
+.post
+  h3 a.first-unread, &:target h3 a
+    color: var(--primary)
+
+.navigation a, dl.details dd
+  color: var(--primary) !important
+
+a:hover, .navigation a:hover, .postlink:hover, a:focus, .navigation a:focus, .postlink:focus, a:active, .navigation a:active, .postlink:active, .arrow-left:hover, .arrow-right:hover
+  color: var(--secondary)
+
+.navigation a, .postlink, .navigation a:hover, .postlink:hover, .navigation a:focus, .postlink:focus
+  background: none !important
+
+.navigation .active-subsection a
+  background: var(--primary) !important
+  color: var(--button-text) !important
+
+  &:hover, &:focus
+    background: var(--primary) !important
+    color: var(--button-text) !important
+
+a
+  &.forumtitle, &.topictitle, &.lastsubject
+    font-weight: 600
+
+.username, .username-coloured
+  font-weight: 600
+
+.postlink
+  font-weight: 600
+  border: none
+
+#memberlist tr.inactive, #team tr.inactive
+  font-style: unset
+
+.topiclist dl.row-item
+  dt, dd
+    min-height: 48px
+
+.forumbg .header a, .forabg .header a, th a
+  color: var(--button-text) !important
+
+li.header
+  dl.row-item
+    dt, dd
+      color: var(--button-text) !important
+
+  dt, dd
+    color: var(--text)
+
+.topiclist dl.row-item
+  background-blend-mode: multiply
+  background-color: inherit
+
+p
+  margin-bottom: 1em
+
+select
+  background: var(--control-bg)
+  min-height: 1.75em
+  border: none !important
+  border-radius: 4px
+  box-shadow: 0 0 0 1px var(--shadow) !important
+
+.cplist
+  border: none !important
+  border-radius: 4px
+  box-shadow: 0 0 0 1px var(--shadow) !important
+
+li.row
+  border-top-color: transparent !important
+  border-bottom-color: var(--border) !important
+
+  &:hover
+    background: var(--control-bg-light)
+
+table
+  &.table1 tbody tr
+    &:hover, &.hover
+      background: var(--control-bg-light)
+
+  &.zebra-list tr:nth-child(2n) td
+    background: var(--control-bg-light)
+
+ul.zebra-list li:nth-child(2n)
+  background: var(--control-bg-light)
+
+li.row strong
+  color: unset
+
+ul.topiclist dd, li.row:hover dd
+  border-left-color: transparent
+
+ul.topiclist li
+  color: var(--text-dim) !important
+
+.panel-container .panel li.header
+  dd, dt
+    color: var(--text-dim) !important
+
+.button
+  background: var(--secondary)
+  color: var(--button-text)
+  border-color: var(--secondary)
+
+  .icon
+    background: var(--secondary)
+    color: var(--button-text)
+    border-color: var(--secondary)
+
+a.button1
+  background: var(--secondary)
+  color: var(--button-text)
+  border-color: var(--secondary)
+
+input
+  &.button1, &.button3
+    background: var(--secondary)
+    color: var(--button-text)
+    border-color: var(--secondary)
+
+a.button2, input.button2, a.button1:hover, input.button1:hover, a.button2:hover
+  background: var(--secondary)
+  color: var(--button-text)
+  border-color: var(--secondary)
+
+input
+  &.button2:hover, &.button3:hover
+    background: var(--secondary)
+    color: var(--button-text)
+    border-color: var(--secondary)
+
+.button
+  &:hover, &:focus
+    background: var(--secondary-hv)
+    color: var(--button-text)
+    border-color: var(--secondary-hv)
+
+    .icon
+      background: var(--secondary-hv)
+      color: var(--button-text)
+      border-color: var(--secondary-hv)
+
+  &.button-icon-only
+    background: none !important
+    color: var(--primary)
+    border: none
+
+    .icon
+      background: none !important
+      color: var(--primary)
+      border: none
+
+    &:hover .icon
+      color: var(--primary-hv)
+
+.responsive-tab
+  .responsive-tab-link:before, &:hover .responsive-tab-link:before, &:focus .responsive-tab-link:before
+    border-color: var(--control-bg-bright)
+
+  > a.responsive-tab-link
+    line-height: unset
+
+input
+  &.button1, &.button2, &.button3
+    padding: 2px 8px 4px 8px
+    border-radius: 4px
+
+  &.button1:hover, &.button2:hover, &.button3:hover, &.button1:focus, &.button2:focus, &.button3:focus
+    background: var(--secondary-hv)
+    color: var(--button-text)
+    border-color: var(--secondary-hv)
+
+p
+  &.author
+    margin-bottom: 16px
+
+  &.post-notice
+    padding: 8px
+    border-radius: 8px
+
+.caret
+  border-color: #fff5
+
+h3
+  background-image: none
+  border-color: var(--border)
+
+table.table1 tbody
+  tr, td
+    background-image: none
+    border-color: var(--border)
+
+.dropdown li
+  background-image: none
+  border-color: var(--border)
+
+  &.separator
+    background-image: none
+    border-color: var(--border)
+
+.dropdown-extended
+  ul li, .header, .footer
+    background-image: none
+    border-color: var(--border)
+
+.codebox p, .notice, .signature, .attach-image img
+  background-image: none
+  border-color: var(--border)
+
+.tabs
+  .tab > a
+    background: var(--secondary)
+    color: var(--link-text)
+    border-color: var(--secondary)
+
+    &:hover
+      background: var(--secondary-hv)
+      color: var(--link-text)
+      border-color: var(--secondary-hv)
+
+  .activetab > a
+    background: var(--primary)
+    color: var(--link-text)
+    border-color: var(--primary)
+    box-shadow: none
+
+    &:hover
+      background: var(--primary)
+      color: var(--link-text)
+      border-color: var(--primary)
+      box-shadow: none
+
+.postprofile
+  margin: 0
+  float: left
+
+  dd, dt
+    margin: 0
+
+  .username, .username-coloured
+    font-size: 1.2em
+
+img.avatar, .postprofile .avatar img
+  max-width: 100%
+  max-height: 100vh
+  border: 1px solid var(--control-bg-dark)
+  border-radius: 4px
+
+.postbody
+  img.postimage, video
+    max-width: 100%
+    max-height: 100vh
+    border: 1px solid var(--control-bg-dark)
+    border-radius: 4px
+
+.postprofile .avatar img
+  border: none
+
+.postbody
+  img[src*="/images/uploads/"], video
+    margin: 8px 0
+
+img[src^="./images/ranks"]
+  max-height: 25px
+
+.online
+  background-image: url("./images/icon_user_online.gif")
+
+.content h2, .panel h2
+  color: var(--primary)
+  border: none
+
+.content
+  ul, ol
+    margin: 1em
+
+  \::marker
+    color: var(--secondary)
+
+.postbody h3.first, .arrow-left, .arrow-right
+  line-height: 110%
+
+.postbody
+  table
+    max-width: 100%
+    margin: 16px 1px
+
+    tr
+      &:nth-child(odd) td
+        background: var(--control-bg-dark)
+
+      &:first-of-type >
+        td:first-of-type, th:first-of-type
+          border-top-left-radius: 8px
+
+        td:last-of-type, th:last-of-type
+          border-top-right-radius: 8px
+
+      &:last-of-type > td
+        &:first-of-type
+          border-bottom-left-radius: 8px
+
+        &:last-of-type
+          border-bottom-right-radius: 8px
+
+    th
+      padding: 4px 16px
+      background: var(--bg)
+
+    td
+      padding: 8px 16px
+
+  .author, .responsive-hide
+    color: var(--text-dim)
+
+.signature, .icon.icon-lightgray, a:hover .icon.icon-lightgray
+  color: var(--text-dim)
+
+.postbody .inline-attachment
+  margin: 16px 0
+  font-size: .85em
+
+#qr_postform
+  h2
+    margin: 0
+
+  dl
+    display: none
+
+  .message-box
+    width: 100%
+
+.topicreview
+  padding-left: 1px
+  margin-left: -1px
+
+  .postbody .author
+    float: none
+
+.forums
+  border-radius: 4px
+
+.pagination li
+  a, span
+    border-radius: 4px
+
+.row
+  &:first-child
+    border-radius: 4px 4px 0 0
+
+  &:last-child
+    border-radius: 0 0 4px 4px
+
+.pagination
+  li
+    a, span, &.active span
+      background: var(--control-bg-light)
+      color: var(--primary)
+      border-color: var(--shadow) !important
+
+    a
+      &:hover, &:focus
+        color: var(--button-text)
+        background: var(--secondary)
+
+  .dropdown-visible a.dropdown-trigger
+    color: var(--button-text)
+    background: var(--secondary)
+
+.nojs .pagination .dropdown-container
+  &:hover a.dropdown-trigger, &:focus a.dropdown-trigger
+    color: var(--button-text)
+    background: var(--secondary)
+
+.pagination li.active span
+  background: var(--control-bg-dark)
+
+#page-body
+  .inputbox:not(.search)
+    background: var(--control-bg)
+    border-radius: 4px
+    border-color: transparent !important
+    box-shadow: 0 0 0 1px var(--shadow) !important
+
+  .quick-login .inputbox
+    background: var(--control-bg-light)
+
+#smiley-box img
+  width: auto
+  max-height: 32px
+
+.scrolltop
+  display: block
+  margin: -8px 0 8px 0
+  text-align: right
+
+.page-footer
+  padding: 0 8px 0 8px
+
+  .navbar, ul.linklist
+    padding: 0
+
+/* Responsive design
+@media (max-width: 700px)
+  .wrap
+    margin: 8px
+    padding: 8px
+    border-radius: 10px
+
+  .headerbar, .navbar, .forabg, .forumbg, .post
+    margin: 8px 0
+    border-radius: 8px
+
+  .panel
+    margin: 8px 0
+    border-radius: 8px
+    margin-top: 0
+
+  .page-body h2
+    margin-left: 2px
+
+  .action-bar
+    &.bar-top
+      margin-left: 2px
+
+    &.bar-bottom > *
+      float: right
+      margin-right: 0
+
+    &.compact
+      margin-bottom: 8px
+
+  fieldset.quick-login input.inputbox
+    width: 100%
+    max-width: unset
+    margin-left: 0
+
+  ul.topiclist li.row
+    padding: 0
+
+    dt div, dd:not(.lastpost)
+      margin-top: 0
+
+  .post, .topic_poll > .panel, form > .panel
+    padding: 16px
+
+  .headerbar
+    margin-top: 0
+
+  .logo
+    display: block
+
+  .rightside.responsive-search i
+    vertical-align: top
+
+  input.tiny
+    width: 6em !important
+
+    &::placeholder
+      color: transparent
+
+  .post .postprofile
+    margin: 0 auto
+
+  .postprofile
+    .avatar
+      margin: 0 auto
+
+    .avatar-container
+      max-width: 88px
+
+    .avatar img
+      max-width: 80px
+      max-height: 56px
+      margin-right: 8px
+
+    dt
+      &.has-profile-rank
+        height: 56px
+
+      display: table-cell
+      vertical-align: top
+
+    dd.profile-rank
+      display: table-cell
+      vertical-align: top
+
+  .search .postprofile dd
+    display: table-cell
+    vertical-align: top
+
+  .postprofile
+    .username, .username-coloured
+      position: absolute
+
+    dd.profile-rank
+      vertical-align: bottom
+      padding-bottom: 1px
+
+  .postbody
+    h3:first-child
+      display: none
+
+    .author
+      float: right
+      margin: -20px 0 0 0
+
+  .has-profile .post-buttons
+    right: 15px
+
+  .postbody .content
+    padding-top: 16px
+    border-top: 1px solid var(--border)
+
+  img[src^="./images/smilies"]
+    width: auto !important
+    max-height: 64px !important
+
+  .scrolltop
+    margin: -4px 0 4px 0
+
+  .action-bar > .pagination
+    float: right
+    padding-top: 8px
+
+    > ul
+      margin: 0
+
+    .arrow.next
+      margin-right: -6px
+
+  .icon:not(.fa-file), .button .icon, blockquote cite::before, .uncited::before
+    height: 22px
+    font-size: 21px
+    vertical-align: middle
+
+  .arrow-left, .arrow-right
+    line-height: 21px
+
+  .button .icon.fa-sort-down
+    margin-top: -10px
+    background: none
+
+  .search-box .inputbox
+    height: 27.5px
+
+@media (max-width: 500px)
+  .action-bar >
+    \:not(form), form > *
+      margin-bottom: 5px
+
+/* Wide screens
+@media (min-width: 901px)
+  .navigation .active-subsection a
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px
+
+  #qr_postform .panel
+    margin: 16px 200px
+
+  .scrolltop
+    margin-bottom: -23px
